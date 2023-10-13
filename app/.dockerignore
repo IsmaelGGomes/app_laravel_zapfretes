@@ -1,0 +1,17 @@
+vendor
+node_modules
+.env
+.rr.yaml
+rr
+.history
+.volume
+.github
+.idea
+.git
+.vscode
+.fleet
+storage/*
+bootstrap/cache/*
+
+!*/**/.gitkeep
+!*/**/.gitignore
