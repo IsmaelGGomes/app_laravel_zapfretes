@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContatoPostRequest;
 use App\Models\Contato;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class ContatoController extends Controller
      */
     public function index()
     {
-        //
+        return view('layouts.contacts');
     }
 
     /**
@@ -26,9 +27,16 @@ class ContatoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ContatoPostRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $data['status'] = 'pendente';
+        $data['edit'] = 'ativo';
+
+        Contato::create($data);
+
+        return redirect('/contato');
     }
 
     /**

@@ -11,7 +11,7 @@ class ContatoPostRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class ContatoPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'add_remove' => ['required','string'],
+            'nome' => ['required','string'],
+            'filial' => ['required','string'],
+            'email' => ['required','string'],
+            'transportadora' => ['required','string'],
+            'numero' => ['required','string'],
+            'status' => ['nullabe','string'],
+            'edit' => ['nullabe','string'],
         ];
     }
 }

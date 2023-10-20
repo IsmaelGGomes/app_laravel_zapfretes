@@ -19,7 +19,7 @@
                 </p>
             </div>
 
-            <form action="" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+            <form action="/contato" method="POST" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
                 {{-- <p class="text-center text-lg font-medium">ZapFretes | Suporte</p> --}}
                 @csrf
                 <div>
@@ -27,11 +27,11 @@
                         <span class="ml-2 font-semibold text-xl">Adicionar ou remover ?</span>
                         <div class="mt-4 flex flex-row gap-6">
                             <div class="">
-                                <input type="radio" name="add_remove" class="" placeholder="Enter " />
+                                <input type="radio" name="add_remove" value="adicionar" class="" />
                                 <span>Adicionar</span>
                             </div>
                             <div class="">
-                                <input type="radio" name="add_remove" class="" placeholder="Enter " />
+                                <input type="radio" name="add_remove" value="remover" class="" />
                                 <span>Remover</span>
                             </div>
                         </div>
@@ -41,40 +41,45 @@
                 <div>
                     <div class="relative">
                         <span class="ml-2">Nome</span>
-                        <input name="nome" type="" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-md"
+                        <input name="nome" type=""
+                            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-md"
                             placeholder="Digite o nome do colaborador" />
                     </div>
                 </div>
                 <div>
                     <div class="relative">
                         <span class="ml-2">Número</span>
-                        <input name="nome" type="" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-md"
-                            placeholder="Digite o número do colaborador" />
+                        <input id="telefone_format" minlength="2" maxlength="14" name="numero" type=""
+                            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-md"
+                            placeholder="Exemplo: (66)999999999" />
                     </div>
                 </div>
                 <div>
                     <div class="relative">
                         <span class="ml-2">Transportadora</span>
-                        <input name="transportadora" type="" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-md"
+                        <input name="transportadora" type=""
+                            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-md"
                             placeholder="Digite a transportadora" />
                     </div>
                 </div>
                 <div>
                     <div class="relative">
                         <span class="ml-2">Filial</span>
-                        <input name="filial" type="" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-md"
+                        <input name="filial" type=""
+                            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-md"
                             placeholder="Digite a filial" />
                     </div>
                 </div>
                 <div style="margin-bottom: 50px" class="">
                     <div class="relative">
                         <span class="ml-2">Email</span>
-                        <input name="email" type="" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-md"
+                        <input name="email" type="email"
+                            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-md"
                             placeholder="Digite o e-mail" />
                     </div>
                 </div>
 
-                <button type="submit"
+                <button onclick="validade_numero()" type="submit"
                     class="block w-full rounded-lg bg-[#202356] px-5 py-3 text-md font-medium text-white">
                     Enviar
                 </button>
@@ -89,3 +94,32 @@
 </body>
 
 </html>
+
+<script>
+    const input = document.getElementById("telefone_format");
+
+    input.addEventListener("keyup", formatarTelefone);
+
+    function formatarTelefone(e) {
+        var v = e.target.value.replace(/\D/g, "");
+
+        v = v.replace(/^(\d\d)(\d)/g, "($1)$2");
+
+        v = v.replace(/(\d{5})(\d)/, "$1-$2");
+
+        e.target.value = v;
+    }
+
+
+    function validade_numero() {
+        const input_numero = document.getElementById("telefone_format");
+
+        if (input_numero.value.length < 14) {
+            console.log('sssssss');
+        } else {
+            console.log('aaaa');
+        }
+
+
+    }
+</script>
