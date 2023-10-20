@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContatoPostRequest;
 use App\Models\Contato;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ContatoController extends Controller
 {
@@ -36,7 +38,9 @@ class ContatoController extends Controller
 
         Contato::create($data);
 
-        return redirect('/contato');
+        // Alert::success('Eviado com sucesso','Nossa equipe entrará em contato');
+
+        return redirect('/contato')->with('message','sucesso');
     }
 
     /**

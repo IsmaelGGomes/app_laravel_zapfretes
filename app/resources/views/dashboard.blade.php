@@ -5,11 +5,11 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="p-6 text-gray-900">
-                <div class="w-auto bg-white lg:w-5/6  shadow-md rounded-xl my-6">
-                    <table style="width: auto" class="">
+    <div class="py-12 w-full overflow-x-auto">
+        <section style="max-width: 90rem" class="mx-auto pb-12 px-4 sm:px-6 lg:px-8 ">
+            <div class="py-12">
+                <div class="bg-gray-100 text-gray-900 rounded-xl">
+                    <table class="max-w-[90em] table-auto w-full">
                         <thead>
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm">
                                 <th class="py-3 px-6 text-left">ID</th>
@@ -43,49 +43,46 @@
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <span
-                                            class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">{{ $items->filial }}</span>
+                                            class=" py-1 px-3 rounded-full text-xs">{{ $items->filial }}</span>
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <span
-                                            class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">{{ $items->email }}</span>
+                                            class=" py-1 px-3 rounded-full text-xs">{{ $items->email }}</span>
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <span
-                                            class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">{{ $items->nome }}</span>
+                                            class=" py-1 px-3 rounded-full text-xs">{{ $items->nome }}</span>
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <span
-                                            class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">{{ $items->numero }}</span>
+                                            class=" py-1 px-3 rounded-full text-xs">{{ $items->numero }}</span>
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <span
-                                            class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">{{ $items->status }}</span>
+                                            class=" py-1 px-3 rounded-full text-xs">{{ $items->status }}</span>
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <div class="flex item-center justify-center">
                                             <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                                 </svg>
                                             </div>
                                             <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                                 </svg>
                                             </div>
                                             <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                                 </svg>
                                             </div>
@@ -97,7 +94,6 @@
                     </table>
                 </div>
             </div>
-
-        </div>
+        </section>
     </div>
 </x-app-layout>

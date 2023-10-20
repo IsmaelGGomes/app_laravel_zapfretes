@@ -32,4 +32,12 @@ class ContatoPostRequest extends FormRequest
             'edit' => ['nullabe','string'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'required'=>'Obrigatório preencher esse campo !',
+            'add_remove.required'=>'Selecione qual opção deseja realizar'
+        ];
+    }
 }
