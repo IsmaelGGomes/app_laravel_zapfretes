@@ -29,11 +29,11 @@
                         <span class="ml-2 font-semibold text-xl">Adicionar ou remover ?</span>
                         <div class="mt-4 flex flex-row gap-6">
                             <div class="">
-                                <input type="radio" name="add_remove" value="adicionar" class="" />
+                                <input type="radio" name="add_remove" value="Adicionar" class="" />
                                 <span>Adicionar</span>
                             </div>
                             <div class="">
-                                <input type="radio" name="add_remove" value="remover" class="" />
+                                <input type="radio" name="add_remove" value="Remover" class="" />
                                 <span>Remover</span>
                             </div>
                         </div>

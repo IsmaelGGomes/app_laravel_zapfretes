@@ -5,13 +5,64 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 w-full overflow-x-auto">
+    <div class="py-12 w-full overflow-x-auto px-10">
         <section style="max-width: 90rem" class="mx-auto pb-12 px-4 sm:px-6 lg:px-8 ">
+            <div class="bg-gray-200 rounded-xl py-4  justify-center flex flex-row gap-6 px-4 h-44 max-w-[90rem]">
+                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                    <div class="mb-4 text-gray-700 font-semibold">
+                        Adicionar/Remover
+                    </div>
+                    <div class="flex flex-col">
+                        <select name="" id="">
+                            <option value="">item</option>
+                            <option value="">item</option>
+                            <option value="">item</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                    <div class="mb-4 text-gray-700 font-semibold">
+                        Transportadora
+                    </div>
+                    <div class="flex flex-col">
+                        <select name="" id="">
+                            <option value="">item</option>
+                            <option value="">item</option>
+                            <option value="">item</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                    <div class="mb-4 text-gray-700 font-semibold">
+                        Filial
+                    </div>
+                    <div class="flex flex-col">
+                        <select name="" id="">
+                            <option value="">item</option>
+                            <option value="">item</option>
+                            <option value="">item</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                    <div class="mb-4 text-gray-700 font-semibold">
+                        Status
+                    </div>
+                    <div class="flex flex-col">
+                        <select name="" id="">
+                            <option value="">item</option>
+                            <option value="">item</option>
+                            <option value="">item</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
             <div class="py-12">
                 <div class="bg-gray-100 text-gray-900 rounded-xl">
                     <table class="max-w-[90em] table-auto w-full">
                         <thead>
-                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm">
+                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm ">
                                 <th class="py-3 px-6 text-left">ID</th>
                                 <th class="py-3 px-6 text-left">Adicionar/Remover</th>
                                 <th class="py-3 px-6 text-center">Transportadora</th>
@@ -25,14 +76,14 @@
                         </thead>
                         <tbody class="text-gray-600 text-sm font-light">
                             @foreach ($item as $items)
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
+                                <tr class="border-b border-gray-200 hover:bg-gray-300">
+                                    <td class="py-3 px-6 text-center whitespace-nowrap">
+                                        <div class="flex items-center justify-center">
                                             <span class="font-medium">{{ $items->id }}</span>
                                         </div>
                                     </td>
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
+                                    <td class="py-3 px-6 text-center">
+                                        <div class="flex items-center justify-center">
                                             <span>{{ $items->add_remove }}</span>
                                         </div>
                                     </td>
@@ -54,7 +105,17 @@
                                         <span class=" py-1 px-3 rounded-full text-xs">{{ $items->numero }}</span>
                                     </td>
                                     <td class="py-3 px-6 text-center">
-                                        <span class=" py-1 px-3 rounded-full text-xs">{{ $items->status }}</span>
+                                        @if ($items->status == 'Concluído')
+                                            <span class=" py-1 px-3 rounded-full text-xs bg-green-200 rounded-xl text-black py-1">{{ $items->status }}</span>
+                                        @elseif($items->status == 'Pendente')
+                                            <span class=" py-1 px-3 rounded-full text-xs bg-yellow-200 rounded-xl text-black py-1">{{ $items->status }}</span>
+                                        @elseif ($items->status == 'Andamento')
+                                            <span class=" py-1 px-3 rounded-full text-xs bg-blue-200 rounded-xl text-black py-1">{{ $items->status }}</span>
+                                        @elseif($items->status == 'Descartado')
+                                            <span class=" py-1 px-3 rounded-full text-xs bg-red-200 rounded-xl text-black py-1">{{ $items->status }}</span>
+                                        @endif
+
+                                        
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <div class="flex item-center justify-center">
@@ -108,15 +169,19 @@
                         </tbody>
                     </table>
                     {{-- Modal update --}}
-                    <div id="myModalUpdate" class="fixed  inset-0 bg-opacity-50 h-screen w-full overflow-y-auto">
+                    <div id="myModalUpdate" class="fixed hidden inset-0 bg-opacity-50 h-screen w-full overflow-y-auto">
                         <!-- Modal content updatebook -->
                         <div
                             class="modal-contentUpdate absolute bg-white md:left-[50%] left-1/2 md:top-[48%] 
                                     top-1/2 md:translate-y-[-50%] md:translate-x-[-50%] w-auto h-auto translate-y-[-40%] translate-x-[-41%]">
-                            <span class="close cursor-pointer mr-4">&times;</span>
+                            <div class="w-full flex justify-end p-4">
+                                <svg onclick="inUpdate()" class="cursor-pointer w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
                             <div class="modal-headerUpdate bg-white w-full text-black">
 
-                                <div class="px-4 pt-4 lg:pt-10 w-full">
+                                <div class="px-4  w-full rounded-xl">
                                     <form action="#" method="" enctype="multipart/form-data">
                                         @csrf
                                         <div class="relative z-0 w-full mb-4 mt-10 group ">
