@@ -54,9 +54,9 @@ class ContatoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Contato $contato)
+    public function edit($id)
     {
-        //
+        return Contato::find($id);
     }
 
     /**

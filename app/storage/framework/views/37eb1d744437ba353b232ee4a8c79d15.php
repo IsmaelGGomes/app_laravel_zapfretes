@@ -147,12 +147,12 @@ unset($__errorArgs, $__bag); ?>
                 </button>
 
                 <?php if(Session::has('message')): ?>
-                <script>
-                    swal("Message","Enviado com sucesso", 'Nossa equipe entrará em contato', {
-                        button:true,
-                        button: "OK",
-                    });
-                </script>
+                    <script>
+                        swal("Message","Enviado com sucesso", 'Nossa equipe entrará em contato', {
+                            button:true,
+                            button: "OK",
+                        });
+                    </script>
                 <?php endif; ?>
 
 

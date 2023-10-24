@@ -31,6 +31,7 @@ Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login'
 
 //API RESOURCE
 route::get('/contato', [ContatoController::class, 'index']);
+route::get('/contato/edit/{id}', [ContatoController::class, 'edit']);
 
 route::post('/contato', [ContatoController::class, 'store']);
 
