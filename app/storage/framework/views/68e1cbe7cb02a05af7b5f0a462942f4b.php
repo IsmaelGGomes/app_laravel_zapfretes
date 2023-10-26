@@ -17,7 +17,8 @@
     <div class="py-12 w-full overflow-x-auto px-10">
         <section style="max-width: 90rem" class="mx-auto pb-12 px-4 sm:px-6 lg:px-8 ">
             <div class="bg-gray-200 rounded-xl py-4  justify-center flex flex-row gap-6 px-4 h-44 max-w-[90rem]">
-                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                <div
+                    class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
                     <div class="mb-4 text-gray-700 font-semibold">
                         Adicionar/Remover
                     </div>
@@ -29,7 +30,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                <div
+                    class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
                     <div class="mb-4 text-gray-700 font-semibold">
                         Transportadora
                     </div>
@@ -41,7 +43,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                <div
+                    class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
                     <div class="mb-4 text-gray-700 font-semibold">
                         Filial
                     </div>
@@ -53,7 +56,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                <div
+                    class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
                     <div class="mb-4 text-gray-700 font-semibold">
                         Status
                     </div>
@@ -65,7 +69,7 @@
                         </select>
                     </div>
                 </div>
-                
+
             </div>
             <div class="py-12">
                 <div class="bg-gray-100 text-gray-900 rounded-xl">
@@ -85,6 +89,7 @@
                         </thead>
                         <tbody class="text-gray-600 text-sm font-light">
                             <?php $__currentLoopData = $item; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <input hidden name="id_form" id="id_form" value="<?php echo e($items->id); ?>" type="text">
                                 <tr class="border-b border-gray-200 hover:bg-gray-300">
                                     <td class="py-3 px-6 text-center whitespace-nowrap">
                                         <div class="flex items-center justify-center">
@@ -116,61 +121,63 @@
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <?php if($items->status == 'Concluído'): ?>
-                                            <span class=" py-1 px-3 rounded-full text-xs bg-green-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
+                                            <span
+                                                class=" py-1 px-3 rounded-full text-xs bg-green-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
                                         <?php elseif($items->status == 'Pendente'): ?>
-                                            <span class=" py-1 px-3 rounded-full text-xs bg-yellow-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
+                                            <span
+                                                class=" py-1 px-3 rounded-full text-xs bg-yellow-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
                                         <?php elseif($items->status == 'Andamento'): ?>
-                                            <span class=" py-1 px-3 rounded-full text-xs bg-blue-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
+                                            <span
+                                                class=" py-1 px-3 rounded-full text-xs bg-blue-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
                                         <?php elseif($items->status == 'Descartado'): ?>
-                                            <span class=" py-1 px-3 rounded-full text-xs bg-red-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
+                                            <span
+                                                class=" py-1 px-3 rounded-full text-xs bg-red-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
                                         <?php endif; ?>
 
-                                        
+
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <div class="flex item-center justify-center">
                                             <?php
                                             echo '<button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" 
-                                                                                                                                        type="button" id="myBtnUpdate" onclick="inUpdate(' .
-                                                $items->id .
-                                                '), editBook(' .
-                                                $items->id .
-                                                ')">
-                                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                                                                            viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                                                                stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                                                                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                                                                stroke-width="2"
-                                                                                                                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                                                                                                        </svg>
-                                                                                                                                    </button>';
+                                                                                            type="button" id="myBtnUpdate" onclick="viewModal()">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                        stroke-width="2"
+                                                                                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                                                                </svg>
+                                                                                            </button>';
                                             ?>
                                             <?php
                                             echo '
-                                                <button class="w-4 mr-2 cursor-pointer transform hover:text-purple-500 hover:scale-110" 
-                                                    type="button" onclick="inUpdate(' .$items->id .'), editContato(' .$items->id .')">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                    </svg>
-                                                </button>';
+                                                                                                                                        <button class="w-4 mr-2 cursor-pointer transform hover:text-purple-500 hover:scale-110" 
+                                                                                                                                            type="button" onclick="inUpdate(), editContato(' .
+                                                $items->id .
+                                                ')">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                        stroke-width="2"
+                                                                                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                                                                                </svg>
+                                                                                            </button>';
                                             ?>
                                             <?php
                                             echo '
-                                                                                                                                    <button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" 
-                                                                                                                                        type="button" onclick="inDelete(' .
+                                                                                            <button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" 
+                                                                                                type="button" onclick="inDelete(' .
                                                 $items->id .
                                                 ')">
-                                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                                                                            viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                                                                stroke-width="2"
-                                                                                                                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                                                                                                        </svg>
-                                                                                                                                    </button>';
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                        stroke-width="2"
+                                                                                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                                                                </svg>
+                                                                                            </button>';
                                             ?>
                                         </div>
                                     </td>
@@ -185,15 +192,17 @@
                             class="modal-contentUpdate absolute bg-white md:left-[50%] left-1/2 md:top-[48%] 
                                     top-1/2 md:translate-y-[-50%] md:translate-x-[-50%] w-auto h-auto translate-y-[-40%] translate-x-[-41%]">
                             <div class="w-full flex justify-end p-4">
-                                <svg onclick="inUpdate()" class="cursor-pointer w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <svg onclick="inUpdate()" class="cursor-pointer w-6 h-6" aria-hidden="true"
+                                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round">
+                                    </path>
                                 </svg>
                             </div>
                             <div class="modal-headerUpdate bg-white w-full text-black">
 
                                 <div class="px-4  w-full rounded-xl">
                                     <form action="#" method="" enctype="multipart/form-data">
-                                        <?php echo csrf_field(); ?>
                                         <div class="relative z-0 w-full mb-4 mt-10 group ">
                                             <input id="add_remove" value="" type="text" name="add_remove"
                                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
@@ -202,6 +211,7 @@
                                             <label for=""
                                                 class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Adicionar/Remover</label>
                                         </div>
+
                                         <div class="relative z-0 w-full mb-4 group">
                                             <input id="nome" type="text" name="nome" id=""
                                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
@@ -258,33 +268,40 @@
                                                 
                                                 <div class="flex flex-row items-center justify-center gap-6">
                                                     <div>
-                                                        <label class="cursor-pointer rounded-md px-2 py-2 my-2 bg-yellow-200 hover:bg-yellow-500">
+                                                        <label
+                                                            class="cursor-pointer rounded-md px-2 py-2 my-2 bg-yellow-200 hover:bg-yellow-500">
                                                             <input type="radio" name="status" id="status_pendente"
-                                                            value="Pendente" class=""/>
+                                                                value="Pendente" class="" />
                                                             <i class="pl-2">Pendente</i>
                                                         </label>
                                                     </div>
 
                                                     <div>
-                                                        <label class="cursor-pointer rounded-md px-2 py-2 my-2 bg-blue-200 hover:bg-blue-500">
-                                                            <input type="radio" name="status" id="status_andamento"
-                                                            value="Andamento" class=""/>
+                                                        <label
+                                                            class="cursor-pointer rounded-md px-2 py-2 my-2 bg-blue-200 hover:bg-blue-500">
+                                                            <input type="radio" name="status"
+                                                                id="status_andamento" value="Andamento"
+                                                                class="" />
                                                             <i class="pl-2">Andamento</i>
                                                         </label>
                                                     </div>
 
                                                     <div>
-                                                        <label class="cursor-pointer rounded-md px-2 py-2 my-2 bg-green-200 hover:bg-green-500">
-                                                            <input type="radio" name="status" id="status_concluido"
-                                                            value="Concluído" class=""/>
+                                                        <label
+                                                            class="cursor-pointer rounded-md px-2 py-2 my-2 bg-green-200 hover:bg-green-500">
+                                                            <input type="radio" name="status"
+                                                                id="status_concluido" value="Concluído"
+                                                                class="" />
                                                             <i class="pl-2">Concluído</i>
                                                         </label>
                                                     </div>
 
                                                     <div>
-                                                        <label class="cursor-pointer rounded-md px-2 py-2 my-2 bg-red-200 hover:bg-red-500">
-                                                            <input type="radio" name="status" id="status_descartado"
-                                                            value="Descartado" class=""/>
+                                                        <label
+                                                            class="cursor-pointer rounded-md px-2 py-2 my-2 bg-red-200 hover:bg-red-500">
+                                                            <input type="radio" name="status"
+                                                                id="status_descartado" value="Descartado"
+                                                                class="" />
                                                             <i class="pl-2">Descartado</i>
                                                         </label>
                                                     </div>
@@ -295,8 +312,10 @@
                                         <div class="space-x-4 py-4 text-right">
                                             <button onclick="inUpdate()" type="button"
                                                 class="inline-block text-white focus:outline-none font-medium rounded-lg text-sm w-auto sm:w-1/5 px-3 py-2.5 text-center bg-gray-600 hover:bg-gray-700 focus:ring-white-800">Fechar</button>
-                                            <button onclick="actionUpdate()" type="button"
-                                                class="inline-block text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-auto sm:w-1/5 px-3 py-2.5 text-center  hover:bg-blue-700 focus:ring-blue-800">Editar</button>
+                                            <button onclick="sendUpdate()" type="button"
+                                                class="inline-block text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-auto sm:w-1/5 px-3 py-2.5 text-center  hover:bg-blue-700 focus:ring-blue-800">
+                                                Editar
+                                            </button>
                                         </div>
                                         <input class="hidden" type="text" value="" id="edit_id"
                                             name="id">
@@ -327,20 +346,20 @@
     }
 </style>
 <script>
-    function edit_item() {
-        console.log('ok');
-        swal({
-            title: 'Input email address',
-            input: 'text',
-            inputLabel: 'Your email address',
-            inputPlaceholder: 'Enter your email address'
-            // inputValidator: (value) => {
-            //     if (!value) {
-            //         return 'You need to write something!'
-            //     }
-            // }
-        })
-    }
+    // function edit_item() {
+    //     console.log('ok');
+    //     swal({
+    //         title: 'Input email address',
+    //         input: 'text',
+    //         inputLabel: 'Your email address',
+    //         inputPlaceholder: 'Enter your email address'
+    //         // inputValidator: (value) => {
+    //         //     if (!value) {
+    //         //         return 'You need to write something!'
+    //         //     }
+    //         // }
+    //     })
+    // }
 
     //modal update
 
@@ -365,6 +384,14 @@
         }
     }
 
+    function viewModal() {
+        if (modalUpdate.style.display == "block") {
+            modalUpdate.style.display = "none";
+        } else {
+            modalUpdate.style.display = "block";
+        }
+    }
+
     function getContato($id) {
 
         const options = {
@@ -373,14 +400,14 @@
                 'Content-Type': 'application/json',
             },
         };
-        return fetch(`<?php echo e(config('app.url')); ?>/contato/edit/${$id}`, options)
+        return fetch(`<?php echo e(config('app.url')); ?>/dashboard/edit/${$id}`, options)
             .then((data) => data.json())
             .catch((error) => console.log(error));
     }
 
     async function editContato($id) {
         const contato = await getContato($id);
-        
+
         for (var i in contato) {
             document.querySelector("#add_remove").value = contato.add_remove;
             document.querySelector("#nome").value = contato.nome;
@@ -388,29 +415,89 @@
             document.querySelector("#email").value = contato.email;
             document.querySelector("#transportadora").value = contato.transportadora;
             document.querySelector("#numero").value = contato.numero;
-            
+            document.querySelector("#id_form").value = contato.id;
+
             //status
             const status_concluido = document.querySelector("#status_concluido");
             const status_andamento = document.querySelector("#status_andamento");
             const status_pendente = document.querySelector("#status_pendente");
             const status_descartado = document.querySelector("#status_descartado");
-            
+
             switch (contato.status) {
-                case "Pendente" :
+                case "Pendente":
+                    console.log("Pendente");
                     status_pendente.checked = true;
                     break;
-                case "Concluído" :
+                case "Concluído":
                     status_concluido.checked = true;
                     break;
-                case "Andamento" :
+                case "Andamento":
                     status_andamento.checked = true;
                     break;
-                case "Descartado" :
+                case "Descartado":
                     status_descartado.checked = true;
                     break;
             }
-            // document.querySelector("#edit_isbn").value = contato.isbn;
         }
+    }
+
+    function sendUpdate() {
+        const add_remove = document.querySelector("#add_remove");
+        const nome = document.querySelector("#nome");
+        const filial = document.querySelector("#filial");
+        const email = document.querySelector("#email");
+        const transportadora = document.querySelector("#transportadora");
+        const numero = document.querySelector("#numero");
+        const id = document.querySelector("#id_form");
+        var status_resul = '';
+
+        const status_concluido = document.querySelector("#status_concluido");
+        const status_andamento = document.querySelector("#status_andamento");
+        const status_pendente = document.querySelector("#status_pendente");
+        const status_descartado = document.querySelector("#status_descartado");
+
+        if (status_pendente.checked == true) {
+            status_resul = 'Pendente';
+        } else if (status_andamento.checked == true) {
+            status_resul = 'Andamento';
+        } else if (status_concluido.checked == true) {
+            status_resul = 'Concluído';
+        } else if (status_descartado.checked == true) {
+            status_resul = 'Descartado';
+        }
+
+        const data = {
+            add_remove: add_remove.value,
+            nome: nome.value,
+            filial: filial.value,
+            email: email.value,
+            transportadora: transportadora.value,
+            numero: numero.value,
+            status: status_resul
+        }
+
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        };
+
+        const res = fetch(`<?php echo e(config('app.url')); ?>/dashboard/${id.value}`, options).then((response) => {
+            console.log(response.status);
+
+            const statuss = response.status == '405' ? true : false;
+
+                if (!statuss) {
+                    sessionStorage.setItem("recarregou", "true");
+                    window.location.reload();
+                }
+
+
+        }).catch((error) => {
+            console.log(error);
+        })
     }
 </script>
 <?php /**PATH /var/www/html/resources/views/dashboard.blade.php ENDPATH**/ ?>

@@ -31,9 +31,10 @@ Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login'
 
 //API RESOURCE
 route::get('/contato', [ContatoController::class, 'index']);
-route::get('/contato/edit/{id}', [ContatoController::class, 'edit']);
+route::get('/dashboard/edit/{id}', [ContatoController::class, 'edit']);
+route::put('/dashboard/{id}', [ContatoController::class, 'update']);
 
-route::post('/contato', [ContatoController::class, 'store']);
+route::post('/dashboard', [ContatoController::class, 'store']);
 
 Route::middleware('auth')->group(function () {
 

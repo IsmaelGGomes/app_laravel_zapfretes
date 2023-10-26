@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContatoPostRequest;
+use App\Http\Requests\ContatoPutRequest;
 use App\Models\Contato;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
@@ -62,9 +63,15 @@ class ContatoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Contato $contato)
+    public function update(ContatoPutRequest $request, Contato $contato)
     {
-        //
+        $data = Contato::find($contato->id);
+
+        $validate = $request->validated();
+        dd($validate);
+        session()->flash('Status', 'Status atualizado com sucesso !');
+
+        return $data->update($validate); 
     }
 
     /**

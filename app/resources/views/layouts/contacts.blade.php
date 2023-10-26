@@ -21,7 +21,7 @@
                 </p>
             </div>
 
-            <form action="/contato" method="POST" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+            <form action="/dashboard" method="POST" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
                 {{-- <p class="text-center text-lg font-medium">ZapFretes | Suporte</p> --}}
                 @csrf
                 <div>
@@ -140,16 +140,15 @@
         e.target.value = v;
     }
 
+    // function validade_numero() {
+    //     const input_numero = document.getElementById("telefone_format");
 
-    function validade_numero() {
-        const input_numero = document.getElementById("telefone_format");
-
-        if (input_numero.value.length < 14) {
-            console.log('sssssss');
-        } else {
-            console.log('aaaa');
-        }
+    //     if (input_numero.value.length < 14) {
+    //         console.log('sssssss');
+    //     } else {
+    //         console.log('aaaa');
+    //     }
 
 
-    }
+    // }
 </script>
