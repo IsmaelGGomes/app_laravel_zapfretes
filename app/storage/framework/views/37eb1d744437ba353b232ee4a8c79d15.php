@@ -148,18 +148,14 @@ unset($__errorArgs, $__bag); ?>
 
                 <?php if(Session::has('message')): ?>
                     <script>
-                        swal("Message","Enviado com sucesso", 'Nossa equipe entrará em contato', {
+                        swal("Enviado com sucesso",'Nossa equipe entrará em contato', {
                             button:true,
+                            icon: 'success',
                             button: "OK",
                         });
                     </script>
                 <?php endif; ?>
 
-
-                <!-- <p class="text-center text-sm text-gray-500">
-                    No account?
-                    <a class="underline" href="">Sign up</a>
-                </p> -->
             </form>
         </div>
     </div>

@@ -35,6 +35,7 @@ route::get('/dashboard/edit/{id}', [ContatoController::class, 'edit']);
 route::put('/dashboard/{id}', [ContatoController::class, 'update']);
 
 route::post('/dashboard', [ContatoController::class, 'store']);
+route::delete('/dashboard/{id}', [ContatoController::class, 'destroy']);
 
 Route::middleware('auth')->group(function () {
 

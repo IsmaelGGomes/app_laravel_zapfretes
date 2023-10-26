@@ -33,6 +33,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
     'App\\Http\\Requests\\ContatoPostRequest' => $baseDir . '/app/Http/Requests/ContatoPostRequest.php',
+    'App\\Http\\Requests\\ContatoPutRequest' => $baseDir . '/app/Http/Requests/ContatoPutRequest.php',
     'App\\Http\\Requests\\ProfileUpdateRequest' => $baseDir . '/app/Http/Requests/ProfileUpdateRequest.php',
     'App\\Models\\Contato' => $baseDir . '/app/Models/Contato.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',

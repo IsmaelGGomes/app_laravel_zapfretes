@@ -77,8 +77,13 @@ class ContatoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Contato $contato)
+    public function destroy($id)
     {
-        //
+        $data = Contato::find($id);
+        
+        session()->flash('Delete','Contato removido com sucesso !');
+        return $data->delete();
+
+        // return redirect('/dashboard');
     }
 }

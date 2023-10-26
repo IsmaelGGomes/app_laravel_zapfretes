@@ -556,6 +556,7 @@ class ComposerStaticInitbacc16cb831af0780a7228687c7a6c7b
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ContatoPostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ContatoPostRequest.php',
+        'App\\Http\\Requests\\ContatoPutRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ContatoPutRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
         'App\\Models\\Contato' => __DIR__ . '/../..' . '/app/Models/Contato.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
