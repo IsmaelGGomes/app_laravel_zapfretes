@@ -34,7 +34,7 @@ class ContatoController extends Controller
     {
         $data = $request->validated();
 
-        $data['status'] = 'pendente';
+        $data['status'] = 'Pendente';
         $data['edit'] = 'ativo';
 
         Contato::create($data);
@@ -63,15 +63,15 @@ class ContatoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ContatoPutRequest $request, Contato $contato)
+    public function update(Request $request, $id)
     {
-        $data = Contato::find($contato->id);
+        $contato = Contato::find($id);
 
-        $validate = $request->validated();
-        dd($validate);
-        session()->flash('Status', 'Status atualizado com sucesso !');
-
-        return $data->update($validate); 
+        $validate = $request->all();
+        
+        session()->flash('Status', 'Status atualizado com sucesso !'); 
+         
+        return $contato->update($validate);;
     }
 
     /**

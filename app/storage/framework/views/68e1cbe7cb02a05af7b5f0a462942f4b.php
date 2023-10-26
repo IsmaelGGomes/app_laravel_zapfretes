@@ -476,10 +476,13 @@
             status: status_resul
         }
 
+        const token = document.querySelector('meta[name="csrf-token"]').content;
+
         const options = {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': token,
             },
             body: JSON.stringify(data)
         };
@@ -493,8 +496,6 @@
                     sessionStorage.setItem("recarregou", "true");
                     window.location.reload();
                 }
-
-
         }).catch((error) => {
             console.log(error);
         })
