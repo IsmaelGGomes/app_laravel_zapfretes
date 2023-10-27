@@ -33,9 +33,9 @@
                     <div class="mb-4 text-gray-700 font-semibold">
                         Transportadora
                     </div>
-                    <div class="custom-select" style="width:200px;">
-                        <select>
-                            <option value="0">Select car:</option>
+                    <div class="custom-select w-[120px]">
+                        <select class="rounded-xl">
+                            <option value="0">Selecione</option>
                             <option value="1">Audi</option>
                             <option value="2">BMW</option>
                             <option value="3">Citroen</option>
@@ -74,11 +74,13 @@
                     <div class="mb-4 text-gray-700 font-semibold">
                         Status
                     </div>
-                    <div class="flex flex-col">
-                        <select name="" id="">
-                            <option value="">item</option>
-                            <option value="">item</option>
-                            <option value="">item</option>
+                    <div class="custom-select w-[120px]">
+                        <select name="select_status" class="rounded-xl">
+                            <option value="0">Selecione</option>
+                            <option onclick="filter_status()" value="Concluído">Concluído</option>
+                            <option onclick="filter_status()" value="Andamento">Andamento</option>
+                            <option onclick="filter_status()" value="Descartado">Descartado</option>
+                            <option onclick="filter_status()" value="Pendente">Pendente</option>
                         </select>
                     </div>
                 </div>
@@ -325,7 +327,8 @@
 }
 
 .select-selected {
-  background-color: DodgerBlue;
+  background-color: #111827;
+  border-radius: 8px;
 }
 
 /*style the arrow inside the select element:*/
@@ -359,7 +362,7 @@
 /*style items (options):*/
 .select-items {
   position: absolute;
-  background-color: DodgerBlue;
+  background-color: #111827;
   top: 100%;
   left: 0;
   right: 0;
@@ -647,4 +650,26 @@
     /*if the user clicks anywhere outside the select box,
     then close all select boxes:*/
     document.addEventListener("click", closeAllSelect);
+
+
+    //REGRAS DOS FILTROS
+
+    function filter_status() {
+
+        const token = document.querySelector('meta[name="csrf-token"]').content;
+
+        const options = {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                'X-CSRF-TOKEN': token,
+            },
+        };
+
+        const res = fetch(``, options).then((response) => {
+            console.log(response.status);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
 </script><?php /**PATH /var/www/html/resources/views/dashboard.blade.php ENDPATH**/ ?>
