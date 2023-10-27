@@ -30,7 +30,7 @@ Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login'
 
 
 //API RESOURCE
-route::get('/contato', [ContatoController::class, 'index']);
+route::get('/contato', [ContatoController::class, 'show_contato']);
 route::get('/dashboard/edit/{id}', [ContatoController::class, 'edit']);
 route::put('/dashboard/{id}', [ContatoController::class, 'update']);
 
@@ -39,7 +39,7 @@ route::delete('/dashboard/{id}', [ContatoController::class, 'destroy']);
 
 Route::middleware('auth')->group(function () {
 
-    route::get('/dashboard', [WebController::class, 'show_table'])->name('dashboard');
+    route::get('/dashboard', [ContatoController::class, 'index'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

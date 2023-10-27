@@ -17,7 +17,8 @@
     <div class="py-12 w-full overflow-x-auto px-10">
         <section style="max-width: 90rem" class="mx-auto pb-12 px-4 sm:px-6 lg:px-8 ">
             <div class="bg-gray-200 rounded-xl py-4  justify-center flex flex-row gap-6 px-4 h-44 max-w-[90rem]">
-                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                <div
+                    class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
                     <div class="mb-4 text-gray-700 font-semibold">
                         Adicionar/Remover
                     </div>
@@ -29,7 +30,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                <div
+                    class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
                     <div class="mb-4 text-gray-700 font-semibold">
                         Transportadora
                     </div>
@@ -58,29 +60,31 @@
                         </select>
                     </div> -->
                 </div>
-                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                <div
+                    class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
                     <div class="mb-4 text-gray-700 font-semibold">
                         Filial
                     </div>
-                    <div class="flex flex-col">
-                        <select name="" id="">
-                            <option value="">item</option>
-                            <option value="">item</option>
-                            <option value="">item</option>
+                    <div class="custom_filial flex flex-col">
+                        <select  name="select_filial" id="select_filial">
+                            <option onclick="filter_status()" value="item1">item1</option>
+                            <option onclick="filter_status()" value="item2">item2</option>
+                            <option onclick="filter_status()" value="item3">item3</option>
                         </select>
                     </div>
                 </div>
-                <div class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
+                <div
+                    class="w-44 h-full p-2 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
                     <div class="mb-4 text-gray-700 font-semibold">
                         Status
                     </div>
-                    <div class="custom-select w-[120px]">
-                        <select name="select_status" class="rounded-xl">
-                            <option value="0">Selecione</option>
-                            <option onclick="filter_status()" value="Concluído">Concluído</option>
-                            <option onclick="filter_status()" value="Andamento">Andamento</option>
-                            <option onclick="filter_status()" value="Descartado">Descartado</option>
-                            <option onclick="filter_status()" value="Pendente">Pendente</option>
+                    <div class="w-[120px] mr-4">
+                        <select id="select_status" name="select_status" class="bg-[#111827] outline-none border-none text-white rounded-xl">
+                            <option onclick="filter_status()" class="text-black bg-green-200" hidden value="0">Selecione</option>
+                            <option onclick="filter_status()" class="text-black bg-green-200" value="Concluído">Concluído</option>
+                            <option onclick="filter_status()" class="text-black bg-blue-200" value="Andamento">Andamento</option>
+                            <option onclick="filter_status()" class="text-black bg-red-200" value="Descartado">Descartado</option>
+                            <option onclick="filter_status()" class="text-black bg-yellow-200" value="Pendente">Pendente</option>
                         </select>
                     </div>
                 </div>
@@ -104,103 +108,113 @@
                         </thead>
                         <tbody class="text-gray-600 text-sm font-light">
                             <?php $__currentLoopData = $item; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <input hidden name="id_form" id="id_form" value="<?php echo e($items->id); ?>" type="text">
-                            <tr class="border-b border-gray-200 hover:bg-gray-300">
-                                <td class="py-3 px-6 text-center whitespace-nowrap">
-                                    <div class="flex items-center justify-center">
-                                        <span class="font-medium"><?php echo e($items->id); ?></span>
-                                    </div>
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <div class="flex items-center justify-center">
-                                        <span><?php echo e($items->add_remove); ?></span>
-                                    </div>
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <div class="flex items-center justify-center">
-                                        <?php echo e($items->transportadora); ?>
+                                <input hidden name="id_form" id="id_form" value="<?php echo e($items->id); ?>" type="text">
+                                <tr class="border-b border-gray-200 hover:bg-gray-300">
+                                    <td class="py-3 px-6 text-center whitespace-nowrap">
+                                        <div class="flex items-center justify-center">
+                                            <span class="font-medium"><?php echo e($items->id); ?></span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-6 text-center">
+                                        <div class="flex items-center justify-center">
+                                            <span><?php echo e($items->add_remove); ?></span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-6 text-center">
+                                        <div class="flex items-center justify-center">
+                                            <?php echo e($items->transportadora); ?>
 
-                                    </div>
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <span class=" py-1 px-3 rounded-full text-xs"><?php echo e($items->filial); ?></span>
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <span class=" py-1 px-3 rounded-full text-xs"><?php echo e($items->email); ?></span>
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <span class=" py-1 px-3 rounded-full text-xs"><?php echo e($items->nome); ?></span>
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <span class=" py-1 px-3 rounded-full text-xs"><?php echo e($items->numero); ?></span>
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <?php if($items->status == 'Concluído'): ?>
-                                    <span class=" py-1 px-3 rounded-full text-xs bg-green-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
-                                    <?php elseif($items->status == 'Pendente'): ?>
-                                    <span class=" py-1 px-3 rounded-full text-xs bg-yellow-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
-                                    <?php elseif($items->status == 'Andamento'): ?>
-                                    <span class=" py-1 px-3 rounded-full text-xs bg-blue-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
-                                    <?php elseif($items->status == 'Descartado'): ?>
-                                    <span class=" py-1 px-3 rounded-full text-xs bg-red-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
-                                    <?php endif; ?>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-6 text-center">
+                                        <span class=" py-1 px-3 rounded-full text-xs"><?php echo e($items->filial); ?></span>
+                                    </td>
+                                    <td class="py-3 px-6 text-center">
+                                        <span class=" py-1 px-3 rounded-full text-xs"><?php echo e($items->email); ?></span>
+                                    </td>
+                                    <td class="py-3 px-6 text-center">
+                                        <span class=" py-1 px-3 rounded-full text-xs"><?php echo e($items->nome); ?></span>
+                                    </td>
+                                    <td class="py-3 px-6 text-center">
+                                        <span class=" py-1 px-3 rounded-full text-xs"><?php echo e($items->numero); ?></span>
+                                    </td>
+                                    <td class="py-3 px-6 text-center">
+                                        <?php if($items->status == 'Concluído'): ?>
+                                            <span
+                                                class=" py-1 px-3 rounded-full text-xs bg-green-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
+                                        <?php elseif($items->status == 'Pendente'): ?>
+                                            <span
+                                                class=" py-1 px-3 rounded-full text-xs bg-yellow-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
+                                        <?php elseif($items->status == 'Andamento'): ?>
+                                            <span
+                                                class=" py-1 px-3 rounded-full text-xs bg-blue-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
+                                        <?php elseif($items->status == 'Descartado'): ?>
+                                            <span
+                                                class=" py-1 px-3 rounded-full text-xs bg-red-200 rounded-xl text-black py-1"><?php echo e($items->status); ?></span>
+                                        <?php endif; ?>
 
 
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <div class="flex item-center justify-center">
-                                        <?php
-                                        echo '<button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" 
-                                                                                            type="button" id="myBtnUpdate" onclick="viewModal()">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                        stroke-width="2"
-                                                                                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                                                                </svg>
-                                                                                            </button>';
-                                        ?>
-                                        <?php
-                                        echo '
-                                                                                                                                        <button class="w-4 mr-2 cursor-pointer transform hover:text-purple-500 hover:scale-110" 
-                                                                                                                                            type="button" onclick="inUpdate(), editContato(' .
-                                            $items->id .
-                                            ')">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                        stroke-width="2"
-                                                                                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                                                                </svg>
-                                                                                            </button>';
-                                        ?>
-                                        <?php
-                                        echo '
-                                                                                            <button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" 
-                                                                                                type="button" onclick="messageDelete(' . $items->id . ')">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                        stroke-width="2"
-                                                                                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                                                                </svg>
-                                                                                            </button>';
-                                        ?>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td class="py-3 px-6 text-center">
+                                        <div class="flex item-center justify-center">
+                                            <?php
+                                            echo '<button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" 
+                                                                                                                                        type="button" id="myBtnUpdate" onclick="viewModal()">
+                                                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                                                                    stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                                                                    stroke-width="2"
+                                                                                                                                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                                                                                                            </svg>
+                                                                                                                                        </button>';
+                                            ?>
+                                            <?php
+                                            echo '
+                                                                                                                                                                                    <button class="w-4 mr-2 cursor-pointer transform hover:text-purple-500 hover:scale-110" 
+                                                                                                                                                                                        type="button" onclick="inUpdate(), editContato(' .
+                                                $items->id .
+                                                ')">
+                                                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                                                                    stroke-width="2"
+                                                                                                                                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                                                                                                                            </svg>
+                                                                                                                                        </button>';
+                                            ?>
+                                            <?php
+                                            echo '
+                                                                                                                                        <button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" 
+                                                                                                                                            type="button" onclick="messageDelete(' .
+                                                $items->id .
+                                                ')">
+                                                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                                                                    stroke-width="2"
+                                                                                                                                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                                                                                                            </svg>
+                                                                                                                                        </button>';
+                                            ?>
+                                        </div>
+                                    </td>
+                                </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                     
-                    <div id="myModalUpdate" class="fixed hidden inset-0 bg-opacity-50 h-screen w-full overflow-y-auto">
+                    <div id="myModalUpdate"
+                        class="fixed hidden inset-0 bg-opacity-50 h-screen w-full overflow-y-auto">
                         <!-- Modal content updatebook -->
-                        <div class="modal-contentUpdate absolute bg-white md:left-[50%] left-1/2 md:top-[48%] 
+                        <div
+                            class="modal-contentUpdate absolute bg-white md:left-[50%] left-1/2 md:top-[48%] 
                                     top-1/2 md:translate-y-[-50%] md:translate-x-[-50%] w-auto h-auto translate-y-[-40%] translate-x-[-41%]">
                             <div class="w-full flex justify-end p-4">
-                                <svg onclick="inUpdate()" class="cursor-pointer w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg onclick="inUpdate()" class="cursor-pointer w-6 h-6" aria-hidden="true"
+                                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round">
                                     </path>
                                 </svg>
@@ -210,72 +224,104 @@
                                 <div class="px-4  w-full rounded-xl">
                                     <form action="#" method="" enctype="multipart/form-data">
                                         <div class="relative z-0 w-full mb-4 mt-10 group ">
-                                            <input id="add_remove" value="" type="text" name="add_remove" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
-                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" ">
-                                            <label for="" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Adicionar/Remover</label>
+                                            <input id="add_remove" value="" type="text" name="add_remove"
+                                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
+                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                                placeholder=" ">
+                                            <label for=""
+                                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Adicionar/Remover</label>
                                         </div>
 
                                         <div class="relative z-0 w-full mb-4 group">
-                                            <input id="nome" type="text" name="nome" id="" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
-                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" ">
-                                            <label for="" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nome</label>
+                                            <input id="nome" type="text" name="nome" id=""
+                                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
+                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                                placeholder=" ">
+                                            <label for=""
+                                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nome</label>
                                         </div>
 
                                         <div class="flex flex-row gap-10">
                                             <div class="relative z-0 w-full mb-4 group">
-                                                <input id="filial" type="text" name="filial" id="" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
-                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" ">
-                                                <label for="" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Filial</label>
+                                                <input id="filial" type="text" name="filial" id=""
+                                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
+                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                                    placeholder=" ">
+                                                <label for=""
+                                                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Filial</label>
                                             </div>
                                             <div class="relative z-0 w-full mb-6 group">
-                                                <input id="email" type="text" name="email" id="" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
-                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" ">
-                                                <label for="" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+                                                <input id="email" type="text" name="email" id=""
+                                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
+                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                                    placeholder=" ">
+                                                <label for=""
+                                                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
                                             </div>
 
                                         </div>
                                         <div class="flex flex-row gap-10">
                                             <div class="relative z-0 w-full mb-6 group">
-                                                <input id="transportadora" type="text" name="transportadora" id="" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
-                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" ">
-                                                <label for="" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Transportadora</label>
+                                                <input id="transportadora" type="text" name="transportadora"
+                                                    id=""
+                                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
+                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                                    placeholder=" ">
+                                                <label for=""
+                                                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Transportadora</label>
                                             </div>
                                             <div class="relative z-0 w-full mb-6 group">
-                                                <input id="numero" type="" name="numero" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
-                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" ">
-                                                <label for="" class="clean peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Número</label>
-                                                <span id="validade_edition" class="hidden font-semibold text-red-600 text-[14px]">Insira apenas
+                                                <input id="numero" type="" name="numero"
+                                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 
+                                            border-gray-500 focus:border-blue-500 text-black focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                                    placeholder=" ">
+                                                <label for=""
+                                                    class="clean peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Número</label>
+                                                <span id="validade_edition"
+                                                    class="hidden font-semibold text-red-600 text-[14px]">Insira apenas
                                                     números !</span>
                                             </div>
                                         </div>
-                                        <div class="flex justify-items-center items-center justify-center md:gap-10 w-full border border-2 rounded-xl px-2 py-4">
+                                        <div
+                                            class="flex justify-items-center items-center justify-center md:gap-10 w-full border border-2 rounded-xl px-2 py-4">
                                             <div class="relative w-full">
                                                 
                                                 <div class="flex flex-row items-center justify-center gap-6">
                                                     <div>
-                                                        <label class="cursor-pointer rounded-md px-2 py-2 my-2 bg-yellow-200 hover:bg-yellow-500">
-                                                            <input type="radio" name="status" id="status_pendente" value="Pendente" class="" />
+                                                        <label
+                                                            class="cursor-pointer rounded-md px-2 py-2 my-2 bg-yellow-200 hover:bg-yellow-500">
+                                                            <input type="radio" name="status" id="status_pendente"
+                                                                value="Pendente" class="" />
                                                             <i class="pl-2">Pendente</i>
                                                         </label>
                                                     </div>
 
                                                     <div>
-                                                        <label class="cursor-pointer rounded-md px-2 py-2 my-2 bg-blue-200 hover:bg-blue-500">
-                                                            <input type="radio" name="status" id="status_andamento" value="Andamento" class="" />
+                                                        <label
+                                                            class="cursor-pointer rounded-md px-2 py-2 my-2 bg-blue-200 hover:bg-blue-500">
+                                                            <input type="radio" name="status"
+                                                                id="status_andamento" value="Andamento"
+                                                                class="" />
                                                             <i class="pl-2">Andamento</i>
                                                         </label>
                                                     </div>
 
                                                     <div>
-                                                        <label class="cursor-pointer rounded-md px-2 py-2 my-2 bg-green-200 hover:bg-green-500">
-                                                            <input type="radio" name="status" id="status_concluido" value="Concluído" class="" />
+                                                        <label
+                                                            class="cursor-pointer rounded-md px-2 py-2 my-2 bg-green-200 hover:bg-green-500">
+                                                            <input type="radio" name="status"
+                                                                id="status_concluido" value="Concluído"
+                                                                class="" />
                                                             <i class="pl-2">Concluído</i>
                                                         </label>
                                                     </div>
 
                                                     <div>
-                                                        <label class="cursor-pointer rounded-md px-2 py-2 my-2 bg-red-200 hover:bg-red-500">
-                                                            <input type="radio" name="status" id="status_descartado" value="Descartado" class="" />
+                                                        <label
+                                                            class="cursor-pointer rounded-md px-2 py-2 my-2 bg-red-200 hover:bg-red-500">
+                                                            <input type="radio" name="status"
+                                                                id="status_descartado" value="Descartado"
+                                                                class="" />
                                                             <i class="pl-2">Descartado</i>
                                                         </label>
                                                     </div>
@@ -284,12 +330,15 @@
                                         </div>
                                         <br>
                                         <div class="space-x-4 py-4 text-right">
-                                            <button onclick="inUpdate()" type="button" class="inline-block text-white focus:outline-none font-medium rounded-lg text-sm w-auto sm:w-1/5 px-3 py-2.5 text-center bg-gray-600 hover:bg-gray-700 focus:ring-white-800">Fechar</button>
-                                            <button onclick="sendUpdate()" type="button" class="inline-block text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-auto sm:w-1/5 px-3 py-2.5 text-center  hover:bg-blue-700 focus:ring-blue-800">
+                                            <button onclick="inUpdate()" type="button"
+                                                class="inline-block text-white focus:outline-none font-medium rounded-lg text-sm w-auto sm:w-1/5 px-3 py-2.5 text-center bg-gray-600 hover:bg-gray-700 focus:ring-white-800">Fechar</button>
+                                            <button onclick="sendUpdate()" type="button"
+                                                class="inline-block text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-auto sm:w-1/5 px-3 py-2.5 text-center  hover:bg-blue-700 focus:ring-blue-800">
                                                 Editar
                                             </button>
                                         </div>
-                                        <input class="hidden" type="text" value="" id="edit_id" name="id">
+                                        <input class="hidden" type="text" value="" id="edit_id"
+                                            name="id">
                                     </form>
                                 </div>
                             </div>
@@ -315,69 +364,86 @@
         animation-name: animatetop;
         animation-duration: 0.4s;
     }
+
     /* MODAL DROPDOWN CSS */
     /*the container must be positioned relative:*/
-.custom-select {
-  position: relative;
-  font-family: Arial;
-}
+    .custom-select {
+        position: relative;
+        font-family: Arial;
+    }
+    
+    .custom-select select {
+        display: none;
+        /*hide original SELECT element:*/
+    }
 
-.custom-select select {
-  display: none; /*hide original SELECT element:*/
-}
+    .select-selected {
+        background-color: #111827;
+        border-radius: 8px;
+    }
+    .custom_filial {
+        position: relative;
+        font-family: Arial;
+    }
 
-.select-selected {
-  background-color: #111827;
-  border-radius: 8px;
-}
+    .custom-select select {
+        display: none;
+        /*hide original SELECT element:*/
+    }
 
-/*style the arrow inside the select element:*/
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
+    .select-selected {
+        background-color: #111827;
+        border-radius: 8px;
+    }
 
-/*point the arrow upwards when the select box is open (active):*/
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
+    /*style the arrow inside the select element:*/
+    .select-selected:after {
+        position: absolute;
+        content: "";
+        top: 14px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: #fff transparent transparent transparent;
+    }
 
-/*style the items (options), including the selected item:*/
-.select-items div,.select-selected {
-  color: #ffffff;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
-  user-select: none;
-}
+    /*point the arrow upwards when the select box is open (active):*/
+    .select-selected.select-arrow-active:after {
+        border-color: transparent transparent #fff transparent;
+        top: 7px;
+    }
 
-/*style items (options):*/
-.select-items {
-  position: absolute;
-  background-color: #111827;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
+    /*style the items (options), including the selected item:*/
+    .select-items div,
+    .select-selected {
+        color: #ffffff;
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+        user-select: none;
+    }
 
-/*hide the items when the select box is closed:*/
-.select-hide {
-  display: none;
-}
+    /*style items (options):*/
+    .select-items {
+        position: absolute;
+        background-color: #111827;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+    }
 
-.select-items div:hover, .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
-}
+    /*hide the items when the select box is closed:*/
+    .select-hide {
+        display: none;
+    }
 
+    .select-items div:hover,
+    .same-as-selected {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
 </style>
 <script>
     // function edit_item() {
@@ -655,7 +721,6 @@
     //REGRAS DOS FILTROS
 
     function filter_status() {
-
         const token = document.querySelector('meta[name="csrf-token"]').content;
 
         const options = {
@@ -664,12 +729,20 @@
                 'Content-Type': 'application/json; charset=UTF-8',
                 'X-CSRF-TOKEN': token,
             },
-        };
+        }; 
+        const select_input = document.querySelector('#select_status');
+        // console.log(select_input.selectedValue);
+        const values = [];
+        for (const option of select_input.selectedOptions) {
+            values.push(option.value);
 
-        const res = fetch(``, options).then((response) => {
-            console.log(response.status);
-        }).catch((error) => {
-            console.log(error);
-        })
+            const res = fetch(`<?php echo e(config('app.url')); ?>/dashboard?status=${values}`, options).then((response) => {
+                console.log(response);
+            }).catch((error) => {
+                console.log(error);
+            })
+        }
+        
     }
-</script><?php /**PATH /var/www/html/resources/views/dashboard.blade.php ENDPATH**/ ?>
+</script>
+<?php /**PATH /var/www/html/resources/views/dashboard.blade.php ENDPATH**/ ?>

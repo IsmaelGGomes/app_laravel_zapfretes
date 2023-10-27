@@ -14,9 +14,29 @@ class ContatoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('layouts.contacts');
+    public function index(Request $request)
+    {   
+        $data_request = $request->query();
+
+        $query = Contato::query();
+        $item = Contato::all();
+
+        if(!empty($request->status)) {
+            $query->where('status',$request->status);
+            $item = $query->get();
+        }elseif (!empty($request->filial)){
+            $query->where('filial',$request->filial);
+            $item = $query->get();
+        }elseif (!empty($request->add_remove)){
+            $query->where('add_remove',$request->add_remove);
+            $item = $query->get(); 
+        }elseif (!empty($request->transportadora)){
+            $query->where('transportadora',$request->transportadora);
+            $item = $query->get(); 
+        }
+
+
+        return view('dashboard', compact('item'));
     }
 
     /**
@@ -85,5 +105,10 @@ class ContatoController extends Controller
         return $data->delete();
 
         // return redirect('/dashboard');
+    }
+
+    public function show_contato()
+    {
+        return view('layouts.contacts');
     }
 }
