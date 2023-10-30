@@ -1,32 +1,25 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+           
         </h2>
     </x-slot>
 
-    <div class="py-12 w-full overflow-x-auto px-10">
-        <section style="max-width: 90rem" class="mx-auto pb-12 px-4 sm:px-6 lg:px-8 ">
-            <div class="bg-gray-200 rounded-xl py-4  justify-center flex flex-row gap-12 px-4 h-44 max-w-[90rem]">
+    <div class="py-12 w-full overflow-x-auto px-2 bg-[#1d232a]">
+        <section style="max-width: 100rem" class="flex mx-auto pb-12 px-4 sm:px-6 lg:px-8 ">
+            <form action="{{ config('app.url') }}/dashboard" method="get" class="bg-gray-200 rounded-xl py-4  justify-center items-center flex flex-col gap-8 px-4 h-auto mr-10">
+                
                 <div
                     class="w-40 h-full p-4 border border-2 border-gray-400 justify-center flex flex-col rounded-xl items-center">
                     <div class="mb-4 text-gray-700 font-semibold">
                         Adicionar/Remover
                     </div>
                     <div class="w-[120px]">
-                        <form action="{{ config('app.url') }}/dashboard" method="get">
-                            <details class="dropdown">
-                                <summary class="m-1 btn">Selecione</summary>
-                                <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 gap-2">
-                                    <li onclick="" >
-                                        <input id="" class="bg-green-200 hover:bg-green-500 text-black hover:text-black" type="submit" name="add_remove" value="Adicionar">
-                                    </li>
-                                    <li onclick="">
-                                        <input id=""  class="bg-red-200 hover:bg-red-500 text-black hover:text-black" type="submit" name="add_remove" value="Remover">
-                                    </li>
-                                </ul>
-                            </details>
-                        </form>
+                        <select name="add_remove" class="select w-full max-w-xs focus:outline-none text-md">
+                            <option disabled selected>Selecione</option>
+                            <option class="text-md" value="Adicionar">Adicionar</option>
+                            <option class="text-md" value="Remover">Remover</option>
+                        </select>
                     </div>
                 </div>
                 <div
@@ -35,17 +28,11 @@
                         Transportadora
                     </div>
                     <div class="w-[120px]">
-                        <form action="{{ config('app.url') }}/dashboard" method="get">
-                            <details class="dropdown">
-                                <summary class="m-1 btn">Selecione</summary>
-                                <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 gap-2">
-                                    <li onclick="modify_params()" >
-                                        <input id="" class="bg-green-200 hover:bg-green-500 text-black hover:text-black" type="submit" name="" value="Concluído">
-                                    </li>
-                                    
-                                </ul>
-                            </details>
-                        </form>
+                        <select name="add_remove" class="select w-full max-w-xs focus:outline-none text-md">
+                            <option disabled selected>Selecione</option>
+                            <option class="text-md" value="Adicionar">Adicionar</option>
+                            <option class="text-md" value="Remover">Remover</option>
+                        </select>
                     </div>
                 </div>
                 <div
@@ -54,17 +41,10 @@
                         Filial
                     </div>
                     <div class="w-[120px]">
-                        <form action="{{ config('app.url') }}/dashboard?status=" method="get">
-                            <details class="dropdown">
-                                <summary class="m-1 btn">Selecione</summary>
-                                <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 gap-2">
-                                    <li onclick="modify_params()" >
-                                        <input id="" class="bg-green-200 hover:bg-green-500 text-black hover:text-black" type="submit" name="" value="Concluído">
-                                    </li>
-                                    
-                                </ul>
-                            </details>
-                        </form>
+                        <select class="select w-full max-w-xs focus:outline-none text-md">
+                            <option disabled selected>Selecione</option>
+                            <option class="text-md">Homer</option>
+                        </select>
                     </div>
                 </div>
                 <div
@@ -73,30 +53,51 @@
                         Status
                     </div>
                     <div class="w-[120px]">
-                        <form action="{{ config('app.url') }}/dashboard" method="get">
+                        {{-- <form action="{{ config('app.url') }}/dashboard" method="get">
                             <details class="dropdown">
                                 <summary class="m-1 btn">Selecione</summary>
                                 <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 gap-2">
-                                    <li onclick="modify_params()" >
-                                        <input id="search_concluido" type="submit" class="bg-green-200 hover:bg-green-500 text-black hover:text-black"  name="status" value="Concluído">
+                                    <li onclick="modify_params()">
+                                        <input id="search_concluido" type="none"
+                                            class="bg-green-200 hover:bg-green-500 text-black hover:text-black"
+                                            name="status" value="Concluído">
                                     </li>
                                     <li onclick="modify_params()">
-                                        <input id="search_pendente" type="submit" class="bg-yellow-200 hover:bg-yellow-500 text-black hover:text-black" name="status" value="Pendente">
+                                        <input id="search_pendente" type="none"
+                                            class="bg-yellow-200 hover:bg-yellow-500 text-black hover:text-black"
+                                            name="status" value="Pendente">
                                     </li>
                                     <li onclick="modify_params()">
-                                        <input id="search_descartado" type="submit" class="bg-red-200 hover:bg-red-500 text-black hover:text-black" name="status" value="Descartado">
+                                        <input id="search_descartado" type="none"
+                                            class="bg-red-200 hover:bg-red-500 text-black hover:text-black"
+                                            name="status" value="Descartado">
                                     </li>
                                     <li onclick="modify_params()">
-                                        <input id="search_andamento" type="submit" class="bg-blue-200 hover:bg-blue-500 text-black hover:text-black" name="status" value="Andamento">
+                                        <input id="search_andamento" type="none"
+                                            class="bg-blue-200 hover:bg-blue-500 text-black hover:text-black"
+                                            name="status" value="Andamento">
                                     </li>
                                 </ul>
                             </details>
-                        </form>
+                        </form> --}}
+                        <select name="status" class="select w-full max-w-xs focus:outline-none text-md">
+                            <option disabled selected>Selecione</option>
+                            <option class="text-md" value="Andamento">Andamento</option>
+                            <option class="text-md" value="Concluído">Concluído</option>
+                            <option class="text-md" value="Descartado">Descartado</option>
+                            <option class="text-md" value="Pendente">Pendente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <div class="items-center flex justify-center flex-col">
+                        <hr class="w-full border-1 border-gray-700 mb-2" />
+                        <button class="btn" type="submit">Enviar</button>
                     </div>
                 </div>
 
-            </div>
-            <div class="py-12">
+            </form>
+            <div class="">
                 <div class="bg-gray-100 text-gray-900 rounded-xl">
                     <table class="max-w-[90em] table-auto w-full">
                         <thead>
@@ -164,44 +165,44 @@
                                         <div class="flex item-center justify-center">
                                             <?php
                                             echo '<button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" 
-                                                                                                                                                                                                                                                                            type="button" id="myBtnUpdate" onclick="viewModal()">
-                                                                                                                                                                                                                                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                                                                                                                                                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                                                                                                                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                                                                                                                                                                                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                                                                                                                                                                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                                                                                                                                                                                                        stroke-width="2"
-                                                                                                                                                                                                                                                                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                                                                                                                                                                                                                                                </svg>
-                                                                                                                                                                                                                                                                            </button>';
+                                                                                                                                                                                                                                                                                                                        type="button" id="myBtnUpdate" onclick="viewModal()">
+                                                                                                                                                                                                                                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                                                                                                                                                                                                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                                                                                                                                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                                                                                                                                                                                                                                                    stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                                                                                                                                                                                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                                                                                                                                                                                                                                                    stroke-width="2"
+                                                                                                                                                                                                                                                                                                                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                                                                                                                                                                                                                                                                                            </svg>
+                                                                                                                                                                                                                                                                                                                        </button>';
                                             ?>
                                             <?php
                                             echo '
-                                                                                                                                                                                                                                                                                                                        <button class="w-4 mr-2 cursor-pointer transform hover:text-purple-500 hover:scale-110" 
-                                                                                                                                                                                                                                                                                                                            type="button" onclick="inUpdate(), editContato(' .
+                                                                                                                                                                                                                                                                                                                                                                    <button class="w-4 mr-2 cursor-pointer transform hover:text-purple-500 hover:scale-110" 
+                                                                                                                                                                                                                                                                                                                                                                        type="button" onclick="inUpdate(), editContato(' .
                                                 $items->id .
                                                 ')">
-                                                                                                                                                                                                                                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                                                                                                                                                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                                                                                                                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                                                                                                                                                                                                        stroke-width="2"
-                                                                                                                                                                                                                                                                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                                                                                                                                                                                                                                                </svg>
-                                                                                                                                                                                                                                                                            </button>';
+                                                                                                                                                                                                                                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                                                                                                                                                                                                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                                                                                                                                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                                                                                                                                                                                                                                                    stroke-width="2"
+                                                                                                                                                                                                                                                                                                                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                                                                                                                                                                                                                                                                                                            </svg>
+                                                                                                                                                                                                                                                                                                                        </button>';
                                             ?>
                                             <?php
                                             echo '
-                                                                                                                                                                                                                                                                            <button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" 
-                                                                                                                                                                                                                                                                                type="button" onclick="messageDelete(' .
+                                                                                                                                                                                                                                                                                                                        <button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" 
+                                                                                                                                                                                                                                                                                                                            type="button" onclick="messageDelete(' .
                                                 $items->id .
                                                 ')">
-                                                                                                                                                                                                                                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                                                                                                                                                                                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                                                                                                                                                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                                                                                                                                                                                                                        stroke-width="2"
-                                                                                                                                                                                                                                                                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                                                                                                                                                                                                                                                </svg>
-                                                                                                                                                                                                                                                                            </button>';
+                                                                                                                                                                                                                                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                                                                                                                                                                                                                                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                                                                                                                                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                                                                                                                                                                                                                                                                                    stroke-width="2"
+                                                                                                                                                                                                                                                                                                                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                                                                                                                                                                                                                                                                                            </svg>
+                                                                                                                                                                                                                                                                                                                        </button>';
                                             ?>
                                         </div>
                                     </td>
@@ -723,22 +724,22 @@
 
     //REGRAS DOS FILTROS
 
-    function modify_params(){
+    function modify_params() {
         const params = new URLSearchParams(window.location.search);
-        
+
         const search_concluido = document.querySelector('#search_concluido');
         const search_pendente = document.querySelector('#search_pendente');
         const search_andamento = document.querySelector('#search_andamento');
         const search_descartado = document.querySelector('#search_descartado');
 
         if (params.get('status') == 'Concluído') {
-            search_concluido.name="";
-        }else if (params.get('status') == 'Pendente') {
-            search_pendente.name="";
-        }else if (params.get('status') == 'Andamento') {
-            search_andamento.name="";
-        }else if (params.get('status') == 'Descartado') {
-            search_descartado.name="";
+            search_concluido.name = "";
+        } else if (params.get('status') == 'Pendente') {
+            search_pendente.name = "";
+        } else if (params.get('status') == 'Andamento') {
+            search_andamento.name = "";
+        } else if (params.get('status') == 'Descartado') {
+            search_descartado.name = "";
         }
     }
 </script>

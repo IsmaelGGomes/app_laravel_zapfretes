@@ -20,6 +20,7 @@ class ContatoController extends Controller
 
         $query = Contato::query();
         $item = Contato::all();
+        $filters = $request->except('_token');
 
         if ($request->has('status')) {
             $query->where('status', $request->status);
