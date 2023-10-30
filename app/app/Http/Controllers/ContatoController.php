@@ -15,26 +15,25 @@ class ContatoController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {   
+    {
         $data_request = $request->query();
 
         $query = Contato::query();
         $item = Contato::all();
 
-        if(!empty($request->status)) {
-            $query->where('status',$request->status);
-            $item = $query->get();
-        }elseif (!empty($request->filial)){
-            $query->where('filial',$request->filial);
-            $item = $query->get();
-        }elseif (!empty($request->add_remove)){
-            $query->where('add_remove',$request->add_remove);
-            $item = $query->get(); 
-        }elseif (!empty($request->transportadora)){
-            $query->where('transportadora',$request->transportadora);
-            $item = $query->get(); 
+        if ($request->has('status')) {
+            $query->where('status', $request->status);
+            
+        } elseif ($request->has('filial')) {
+            $query->where('filial', $request->filial);
+            
+        } elseif ($request->has('add_remove')) {
+            $query->where('add_remove', $request->add_remove);
+            
+        } elseif ($request->has('transportadora')) {
+            $query->where('transportadora', $request->transportadora);
         }
-
+        $item = $query->get();
 
         return view('dashboard', compact('item'));
     }
@@ -61,7 +60,7 @@ class ContatoController extends Controller
 
         // Alert::success('Eviado com sucesso','Nossa equipe entrará em contato');
 
-        return redirect('/contato')->with('message','sucesso');
+        return redirect('/contato')->with('message', 'sucesso');
     }
 
     /**
@@ -88,9 +87,9 @@ class ContatoController extends Controller
         $contato = Contato::find($id);
 
         $validate = $request->all();
-        
-        session()->flash('Status', 'Status atualizado com sucesso !'); 
-         
+
+        session()->flash('Status', 'Status atualizado com sucesso !');
+
         return $contato->update($validate);;
     }
 
@@ -100,8 +99,8 @@ class ContatoController extends Controller
     public function destroy($id)
     {
         $data = Contato::find($id);
-        
-        session()->flash('Delete','Contato removido com sucesso !');
+
+        session()->flash('Delete', 'Contato removido com sucesso !');
         return $data->delete();
 
         // return redirect('/dashboard');
