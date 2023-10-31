@@ -31,19 +31,6 @@ services:
             - ./docker/nginx/:/etc/nginx/conf.d
         networks:
             - sail
-    mysql:
-        image: 'mysql:latest'
-        ports:
-            - '5051:3306'
-        environment:
-            MYSQL_ROOT_PASSWORD: 'password'
-            MYSQL_USER: 'laravel_roots'
-            MYSQL_PASSWORD: 'password'
-            MYSQL_DATABASE: '${DB_DATABASE}'
-        volumes:
-            - './db-data:/var/lib/mysql'
-        networks:
-            - sail
     # redis:
     #     image: 'redis:alpine'
     #     ports:
